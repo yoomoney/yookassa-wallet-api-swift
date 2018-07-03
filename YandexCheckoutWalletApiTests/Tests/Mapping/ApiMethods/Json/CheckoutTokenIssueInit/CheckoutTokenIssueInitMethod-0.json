@@ -1,0 +1,9 @@
+{
+  "instanceName": "MyPhone_dsfj43di23",
+  "singleAmountMax": {
+    "value": "10",
+    "currency": "RUB"
+  },
+  "paymentUsageLimit": "Single",
+  "tmxSessionId": "ef167d418c309a4598e8e45fef78039f7d9aa9fe6cc41d5ec590ab78cccecf81"
+}

@@ -1,0 +1,25 @@
+language: objective-c
+osx_image: xcode9.2
+xcode_workspace: YandexCheckoutWalletApi.xcworkspace
+xcode_scheme: YCWalletApiExamplePods
+cache:
+  bundler: true
+  cocoapods: true
+  directories:
+  - Carthage
+notifications:
+  slack:
+    secure: maEeezlKaoYj2EV4JpPUSPVLYGU5xhkhxVlTCvO2h67EX1KrLMsana/z1z5B6ASRLlAZzVjzDj+PpUGA/9IVZsp0Y6gIvYeKNnq27rLhQhv0wUOlabDAvLpPGRbuipAc8sZIkeRpJxYaQJ5MdM5+ulQdQhZYw4OTaJMkL+OgnuXnJEgs40gu+rpa7B1ngYedsYDkw4NdPgN2/DfjNAivq6Xj8H48kLG0wmyehTsjj0uMEz/jd0XLOMQlqfkW2SRwXgO6WQ9lUcu14KKZwHHwvgYgf0POKT7hliinX7bRpiAaXaUSSArvPKaVkUGenygtMqPfXoBwNSDF28h6J9k5HJ9pNtCkZezoZtGxkmP0B3BFh0OemaeKEW8Dx9FIBh0tXxxECsGi4FzaFKMmqN0wK3vDnxwCtFZh8dgMC2TKcJj6zSXWQq1WVfMOMnFalseaJeD/IZ5G2+bVj+sPBUNsp+xOcTOzg2WsPv/UfG0oeX4HTMSYEbA+Ljv3ezzmPTCBIQl5CRAKcPPKptkHvSEksEIHWd646X3yFUfnyVUhqOpo8mAsflaozUt4CSnTlKeLE+eMVrBdWeeei4a01vWJb0Z9GG2+HSwdcsL0ONC24GlUkR2+MB47+m9KOK9lqGr7Hb6QAgaIUsdp6SA6EE//Kg/11kR9pX1DRBL7GFLIMsQ=
+before_install:
+- brew update && brew bundle
+- bundle install --jobs=3 --retry=3 --deployment
+- pushd .
+- bundle exec pod repo update
+- bundle exec pod install
+install: true
+before_script:
+- carthage bootstrap --platform iOS --cache-builds
+script:
+- swiftlint
+- bundle exec fastlane build
+- bundle exec fastlane scan

@@ -1,0 +1,18 @@
+{
+    "status": "Refused",
+    "error": "InvalidAnswer",
+    "result": {
+        "type": "Sms",
+        "attemptsCount": 10,
+        "attemptsLeft": 10,
+        "canBeIssued": false,
+        "codeLength": 6,
+        "codesLeft": 10,
+        "enabled": false,
+        "hasActiveSession": false,
+        "sessionsLeft": 10,
+        "isSessionRequired": true,
+        "sessionTimeLeft": 20,
+        "nextSessionTimeLeft": 30
+    }
+}

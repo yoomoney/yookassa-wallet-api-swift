@@ -1,0 +1,11 @@
+{
+  "type": "Sms",
+  "canBeIssued": false,
+  "codeLength": 6,
+  "enabled": false,
+  "hasActiveSession": false,
+  "sessionsLeft": 10,
+  "isSessionRequired": true,
+  "sessionTimeLeft": 20,
+  "nextSessionTimeLeft": 30
+}

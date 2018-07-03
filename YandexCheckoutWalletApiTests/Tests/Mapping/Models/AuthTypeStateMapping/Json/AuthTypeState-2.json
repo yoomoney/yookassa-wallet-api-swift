@@ -1,0 +1,7 @@
+{
+  "type": "SecurePassword",
+  "canBeIssued": false,
+  "enabled": false,
+  "hasActiveSession": false,
+  "isSessionRequired": true
+}

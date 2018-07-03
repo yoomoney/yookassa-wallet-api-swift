@@ -1,0 +1,8 @@
+{
+  "type": "Totp",
+  "canBeIssued": false,
+  "codeLength": 6,
+  "enabled": false,
+  "hasActiveSession": false,
+  "isSessionRequired": true
+}

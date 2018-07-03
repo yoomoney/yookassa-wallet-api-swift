@@ -1,0 +1,6 @@
+{
+  "status": "Success",
+  "result": {
+    "accessToken": "string"
+  }
+}

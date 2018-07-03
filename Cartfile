@@ -1,0 +1,2 @@
+github "yandex-money/functional-swift.git" ~> 1.0
+github "yandex-money/core-api-swift" ~> 1.0.1

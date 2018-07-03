@@ -1,0 +1,8 @@
+{
+  "type": "Emergency",
+  "canBeIssued": false,
+  "codesLeft": 6,
+  "enabled": false,
+  "hasActiveSession": false,
+  "isSessionRequired": true
+}

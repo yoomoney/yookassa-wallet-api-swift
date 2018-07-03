@@ -1,0 +1,7 @@
+{
+  "type": "OauthToken",
+  "canBeIssued": false,
+  "enabled": false,
+  "hasActiveSession": false,
+  "isSessionRequired": true
+}

@@ -1,0 +1,22 @@
+{
+  "status": "Success",
+  "result": {
+    "authTypes": [
+      {
+        "type": "Sms",
+        "attemptsCount": 10,
+        "attemptsLeft": 11,
+        "canBeIssued": false,
+        "codeLength": 6,
+        "codesLeft": 12,
+        "enabled": true,
+        "hasActiveSession": true,
+        "sessionsLeft": 13,
+        "isSessionRequired": true,
+        "sessionTimeLeft": 20,
+        "nextSessionTimeLeft": 30
+      }
+    ],
+    "defaultAuthType": "Sms"
+  }
+}
