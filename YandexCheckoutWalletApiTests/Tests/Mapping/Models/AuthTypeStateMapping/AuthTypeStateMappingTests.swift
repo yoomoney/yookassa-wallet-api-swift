@@ -1,7 +1,7 @@
 import XCTest
 @testable
-import YandexMoneyTestInstrumentsApi
 import YandexCheckoutWalletApi
+import YandexMoneyTestInstrumentsApi
 
 final class AuthTypeStateMappingTests: MappingApiMethods {
     func testAuthTypeStateSms() {

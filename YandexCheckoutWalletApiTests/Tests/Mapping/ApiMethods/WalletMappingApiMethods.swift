@@ -23,8 +23,8 @@
  */
 
 import XCTest
-import YandexMoneyTestInstrumentsApi
 @testable import YandexCheckoutWalletApi
+import YandexMoneyTestInstrumentsApi
 
 class WalletMappingApiMethods: MappingApiMethods {
 
