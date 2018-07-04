@@ -25,8 +25,8 @@
 import typealias FunctionalSwift.Result
 import OHHTTPStubs
 import XCTest
-import YandexMoneyTestInstrumentsApi
 @testable import YandexCheckoutWalletApi
+import YandexMoneyTestInstrumentsApi
 
 class MerchantClientInfoMethodTests: ApiMethodTestCase {
 

@@ -1,7 +1,7 @@
 import XCTest
 @testable
-import YandexMoneyTestInstrumentsApi
 import YandexCheckoutWalletApi
+import YandexMoneyTestInstrumentsApi
 
 class WalletAuthApiErrorMappingTests: MappingApiMethods {
     func testWalletAuthApiErrorSyntaxError() {
