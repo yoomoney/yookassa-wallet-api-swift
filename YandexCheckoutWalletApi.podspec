@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
   s.swift_version = '4.0'
 
   s.ios.source_files  = 'YandexCheckoutWalletApi/**/*.{h,swift}', 'YandexCheckoutWalletApi/*.{h,swift}'
-  s.ios.resources = 'YandexCheckoutWalletApi/Resources/*.xcassets', 'YandexCheckoutWalletApi/Resources/**/*.plist', 'YandexCheckoutWalletApi/Resources/*.lproj/*.strings'
 
   s.ios.dependency 'FunctionalSwift', '~> 1.0.5'
   s.ios.dependency 'YandexMoneyCoreApi', '~> 1.0.0'
