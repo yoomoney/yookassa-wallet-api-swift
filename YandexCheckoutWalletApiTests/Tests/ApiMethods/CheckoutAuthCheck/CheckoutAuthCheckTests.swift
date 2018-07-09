@@ -51,9 +51,9 @@ class CheckoutAuthCheckTests: ApiMethodTestCase {
 
             let result = authCheck.result
 
-            XCTAssertEqual(result.specific.type, .sms, "Wrong type")
+            XCTAssertEqual(result?.specific.type, .sms, "Wrong type")
 
-            guard case .sms(let smsDescription) = result.specific else {
+            guard case .sms(let smsDescription)? = result?.specific else {
                 XCTFail("Wrong specific")
                 return
             }
@@ -63,7 +63,7 @@ class CheckoutAuthCheckTests: ApiMethodTestCase {
             XCTAssertEqual(smsDescription?.sessionTimeLeft, 20, "Wrong sessionTimeLeft")
             XCTAssertEqual(smsDescription?.nextSessionTimeLeft, 30, "Wrong nextSessionTimeLeft")
 
-            guard let activeSession = result.activeSession else {
+            guard let activeSession = result?.activeSession else {
                 XCTFail("Wrong active session")
                 return
             }
@@ -71,9 +71,9 @@ class CheckoutAuthCheckTests: ApiMethodTestCase {
             XCTAssertEqual(activeSession.attemptsCount, 10, "Wrong attemptsCount")
             XCTAssertEqual(activeSession.attemptsLeft, 11, "Wrong attemptsLeft")
 
-            XCTAssertEqual(result.canBeIssued, false, "Wrong canBeIssued")
-            XCTAssertEqual(result.enabled, true, "Wrong enabled")
-            XCTAssertEqual(result.isSessionRequired, true, "Wrong isSessionRequired")
+            XCTAssertEqual(result?.canBeIssued, false, "Wrong canBeIssued")
+            XCTAssertEqual(result?.enabled, true, "Wrong enabled")
+            XCTAssertEqual(result?.isSessionRequired, true, "Wrong isSessionRequired")
         }
     }
 }
