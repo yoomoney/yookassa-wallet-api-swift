@@ -161,7 +161,7 @@ public enum Specific: Decodable, Encodable {
 
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            
+
             let type = try container.decode(AuthType.self, forKey: .type)
             switch type {
             case .sms:
@@ -271,7 +271,7 @@ extension AuthTypeState.Specific {
 
         /// The remaining number of emergency codes
         public let codesLeft: Int
-        
+
         public let codeLength: Int
 
         public init(codesLeft: Int, codeLength: Int) {
