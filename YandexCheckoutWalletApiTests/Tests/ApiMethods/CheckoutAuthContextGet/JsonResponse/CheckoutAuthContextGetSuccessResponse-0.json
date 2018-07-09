@@ -1,0 +1,49 @@
+{
+  "status": "Success",
+  "result": {
+    "authTypes": [
+      {
+        "type": "Push",
+        "enabled": true,
+        "canBeIssued": false,
+        "isSessionRequired": true,
+        "hasActiveSession": false
+      },
+      {
+        "type": "OauthToken",
+        "enabled": true,
+        "canBeIssued": false,
+        "isSessionRequired": false,
+        "hasActiveSession": true,
+        "attemptsCount": 5,
+        "attemptsLeft": 5
+      },
+      {
+        "type": "Emergency",
+        "enabled": true,
+        "canBeIssued": false,
+        "isSessionRequired": false,
+        "hasActiveSession": false,
+        "codesLeft": 24,
+        "codeLength": 10
+      },
+      {
+        "type": "Sms",
+        "enabled": true,
+        "canBeIssued": false,
+        "isSessionRequired": true,
+        "hasActiveSession": false,
+        "sessionsLeft": 10,
+        "codeLength": 4
+      },
+      {
+        "type": "Totp",
+        "enabled": false,
+        "canBeIssued": false,
+        "isSessionRequired": false,
+        "hasActiveSession": false
+      }
+    ],
+    "defaultAuthType": "Sms"
+  }
+}

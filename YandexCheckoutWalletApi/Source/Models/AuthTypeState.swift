@@ -119,22 +119,22 @@ public struct AuthTypeState: Decodable, Encodable {
     }
 
     /// Specific description by type of authorization
-    public enum Specific: Decodable, Encodable {
+public enum Specific: Decodable, Encodable {
 
         /// By sms
-        case sms(SmsDescription)
+        case sms(SmsDescription?)
 
         /// By time one token password
-        case totp(TotpDescription)
+        case totp(TotpDescription?)
 
         /// By secure password
         case securePassword
 
         /// By emergency code
-        case emergency(EmergencyDescription)
+        case emergency(EmergencyDescription?)
 
         /// By push notification
-        case push(PushDescription)
+        case push(PushDescription?)
 
         /// By OAuth token
         case oauthToken
@@ -161,21 +161,42 @@ public struct AuthTypeState: Decodable, Encodable {
 
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
+            
             let type = try container.decode(AuthType.self, forKey: .type)
             switch type {
             case .sms:
-                let smsDescription = try SmsDescription(from: decoder)
+                let smsDescription: SmsDescription?
+                do {
+                    smsDescription = try SmsDescription(from: decoder)
+                } catch {
+                    smsDescription = nil
+                }
                 self = .sms(smsDescription)
             case .totp:
-                let totpDescription = try TotpDescription(from: decoder)
+                let totpDescription: TotpDescription?
+                do {
+                    totpDescription = try TotpDescription(from: decoder)
+                } catch {
+                    totpDescription = nil
+                }
                 self = .totp(totpDescription)
             case .securePassword:
                 self = .securePassword
             case .emergency:
-                let emergencyDescription = try EmergencyDescription(from: decoder)
+                let emergencyDescription: EmergencyDescription?
+                do {
+                    emergencyDescription = try EmergencyDescription(from: decoder)
+                } catch {
+                    emergencyDescription = nil
+                }
                 self = .emergency(emergencyDescription)
             case .push:
-                let pushDescription = try PushDescription(from: decoder)
+                let pushDescription: PushDescription?
+                do {
+                    pushDescription = try PushDescription(from: decoder)
+                } catch {
+                    pushDescription = nil
+                }
                 self = .push(pushDescription)
             case .oauthToken:
                 self = .oauthToken
@@ -189,15 +210,15 @@ public struct AuthTypeState: Decodable, Encodable {
             try container.encode(type, forKey: .type)
             switch self {
             case .sms(let smsDescription):
-                try smsDescription.encode(to: encoder)
+                try smsDescription?.encode(to: encoder)
             case .totp(let totpDescription):
-                try totpDescription.encode(to: encoder)
+                try totpDescription?.encode(to: encoder)
             case .securePassword:
                 break
             case .emergency(let emergencyDescription):
-                try emergencyDescription.encode(to: encoder)
+                try emergencyDescription?.encode(to: encoder)
             case .push(let pushDescription):
-                try pushDescription.encode(to: encoder)
+                try pushDescription?.encode(to: encoder)
             case .oauthToken:
                 break
             }
@@ -222,14 +243,14 @@ extension AuthTypeState.Specific {
         public let sessionsLeft: Int
 
         /// The remaining number of seconds before the expiration of the lifetime of the session.
-        public let sessionTimeLeft: Int
+        public let sessionTimeLeft: Int?
 
         /// The remaining number of seconds before the opportunity to create a new session.
         public let nextSessionTimeLeft: Int?
 
         public init(codeLength: Int,
                     sessionsLeft: Int,
-                    sessionTimeLeft: Int,
+                    sessionTimeLeft: Int?,
                     nextSessionTimeLeft: Int?) {
             self.codeLength = codeLength
             self.sessionsLeft = sessionsLeft
@@ -242,7 +263,7 @@ extension AuthTypeState.Specific {
     public struct PushDescription: Decodable, Encodable {
 
         /// The remaining number of seconds before the expiration of the lifetime of the session.
-        public let sessionTimeLeft: Int
+        public let sessionTimeLeft: Int?
     }
 
     /// Description of authorization by emergency code
@@ -250,9 +271,12 @@ extension AuthTypeState.Specific {
 
         /// The remaining number of emergency codes
         public let codesLeft: Int
+        
+        public let codeLength: Int
 
-        public init(codeLength: Int, codesLeft: Int) {
+        public init(codesLeft: Int, codeLength: Int) {
             self.codesLeft = codesLeft
+            self.codeLength = codeLength
         }
     }
 

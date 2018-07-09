@@ -59,10 +59,10 @@ class CheckoutAuthSessionGenerateTests: ApiMethodTestCase {
                 return
             }
 
-            XCTAssertEqual(smsDescription.codeLength, 6, "Wrong codeLength")
-            XCTAssertEqual(smsDescription.sessionsLeft, 13, "Wrong sessionsLeft")
-            XCTAssertEqual(smsDescription.sessionTimeLeft, 20, "Wrong sessionTimeLeft")
-            XCTAssertEqual(smsDescription.nextSessionTimeLeft, 30, "Wrong nextSessionTimeLeft")
+            XCTAssertEqual(smsDescription?.codeLength, 6, "Wrong codeLength")
+            XCTAssertEqual(smsDescription?.sessionsLeft, 13, "Wrong sessionsLeft")
+            XCTAssertEqual(smsDescription?.sessionTimeLeft, 20, "Wrong sessionTimeLeft")
+            XCTAssertEqual(smsDescription?.nextSessionTimeLeft, 30, "Wrong nextSessionTimeLeft")
 
             guard let activeSession = result.activeSession else {
                 XCTFail("Wrong active session")
