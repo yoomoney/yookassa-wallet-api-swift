@@ -28,66 +28,12 @@ import XCTest
 @testable import YandexCheckoutWalletApi
 import YandexMoneyTestInstrumentsApi
 
-class CheckoutCheckoutAuthContextGetTests: ApiMethodTestCase {
-
-    struct CheckoutAuthContextGetErrorResponse: StubsResponse {}
-    struct CheckoutAuthContextGetSuccessResponse: StubsResponse {}
-
-    func testCheckoutAuthContextGetErrorResponse() {
-        validate(CheckoutAuthContextGetErrorResponse.self) {
-            guard case .left(CheckoutAuthContextGetError.invalidContext) = $0 else {
-                XCTFail("Wrong result")
-                return
-            }
+class CheckoutCheckoutAuthContextGetTests: MappingApiMethods {
+    func testCheckoutAuthContextGetFullSuccessResponse() {
+        for index in 0..<2 {
+            checkApiMethodsParameters(CheckoutAuthContextGet.self,
+                                      fileName: "CheckoutAuthContextGetSuccessResponse",
+                                      index: index)
         }
-    }
-
-    func testCheckoutAuthContextGetSuccessResponse() {
-        validate(CheckoutAuthContextGetSuccessResponse.self) {
-            guard case .right(let authContext) = $0 else {
-                XCTFail("Wrong result")
-                return
-            }
-            XCTAssertEqual(authContext.defaultAuthType, .sms, "Wrong defaultAuthType")
-            guard let type = authContext.authTypes.first,
-                authContext.authTypes.count == 1 else {
-                    XCTFail("Wrong authTypes")
-                    return
-            }
-
-            XCTAssertEqual(type.specific.type, .sms, "Wrong type")
-
-            guard case .sms(let smsDescription) = type.specific else {
-                XCTFail("Wrong specific")
-                return
-            }
-
-            XCTAssertEqual(smsDescription.codeLength, 6, "Wrong codeLength")
-            XCTAssertEqual(smsDescription.sessionsLeft, 13, "Wrong sessionsLeft")
-            XCTAssertEqual(smsDescription.sessionTimeLeft, 20, "Wrong sessionTimeLeft")
-            XCTAssertEqual(smsDescription.nextSessionTimeLeft, 30, "Wrong nextSessionTimeLeft")
-
-            guard let activeSession = type.activeSession else {
-                XCTFail("Wrong active session")
-                return
-            }
-
-            XCTAssertEqual(activeSession.attemptsCount, 10, "Wrong attemptsCount")
-            XCTAssertEqual(activeSession.attemptsLeft, 11, "Wrong attemptsLeft")
-
-            XCTAssertEqual(type.canBeIssued, false, "Wrong canBeIssued")
-            XCTAssertEqual(type.enabled, true, "Wrong enabled")
-            XCTAssertEqual(type.isSessionRequired, true, "Wrong isSessionRequired")
-        }
-    }
-}
-
-private extension CheckoutCheckoutAuthContextGetTests {
-    func validate(_ stubsResponse: StubsResponse.Type,
-                  verify: @escaping (Result<CheckoutAuthContextGet>) -> Void) {
-        let method = CheckoutAuthContextGet.Method(passportAuthorization: "",
-                                                   merchantClientAuthorization: "",
-                                                   authContextId: "")
-        validate(method, stubsResponse, CheckoutCheckoutAuthContextGetTests.self, verify: verify)
     }
 }

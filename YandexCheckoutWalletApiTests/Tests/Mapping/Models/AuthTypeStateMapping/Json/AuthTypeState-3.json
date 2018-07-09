@@ -2,6 +2,7 @@
   "type": "Emergency",
   "canBeIssued": false,
   "codesLeft": 6,
+  "codeLength": 10,
   "enabled": false,
   "hasActiveSession": false,
   "isSessionRequired": true

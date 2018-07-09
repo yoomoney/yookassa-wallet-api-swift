@@ -13,7 +13,7 @@ PODS:
   - OHHTTPStubs/NSURLSession (6.1.0):
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (6.1.0)
-  - YandexCheckoutWalletApi (1.0.0):
+  - YandexCheckoutWalletApi (1.0.1):
     - FunctionalSwift (~> 1.0.5)
     - YandexMoneyCoreApi (~> 1.0.0)
   - YandexMoneyCoreApi (1.0.1):
@@ -35,7 +35,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FunctionalSwift: 89cef31016cbc9fcdd49ec04e5831ed5f51244bb
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
-  YandexCheckoutWalletApi: 4eb24f6bf3afb90666043e5e13096f58bd3b351d
+  YandexCheckoutWalletApi: cdab88c7a920c454e65dbb6254d7eb2ba1334740
   YandexMoneyCoreApi: fdb12aa2f53bf31dd0c9a9d50c399d69e79a149f
   YandexMoneyTestInstrumentsApi: 058ab654545d84b834d9af1804b40d78930f2297
 

@@ -42,6 +42,7 @@
 		244F7A2EB9BB4F036B33031A /* AuthParams-0.json in Resources */ = {isa = PBXBuildFile; fileRef = 244F72E18069F721415F4757 /* AuthParams-0.json */; };
 		244F7A326776AB28A6E3E6EA /* CheckoutTokenIssueInitMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F7AC3C9B3A11561368229 /* CheckoutTokenIssueInitMethodTests.swift */; };
 		244F7A73056D1048B8D6CF6C /* WalletAuthApiError-6.json in Resources */ = {isa = PBXBuildFile; fileRef = 244F73AA98F03CC806877834 /* WalletAuthApiError-6.json */; };
+		244F7A88C9FE096350054948 /* CheckoutAuthContextGetSuccessResponse-0.json in Resources */ = {isa = PBXBuildFile; fileRef = 244F769A51D2AE1C58E8C84C /* CheckoutAuthContextGetSuccessResponse-0.json */; };
 		244F7B025A8EB40480B74CFF /* WalletAuthApiError-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 244F706D0AFACC99FB6D1D0D /* WalletAuthApiError-2.json */; };
 		244F7B62D9DCE976C0DD706E /* WalletErrorApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F7FE7FD174504B3943AF4 /* WalletErrorApiResponse.swift */; };
 		244F7B7638B5CD4F260D1F91 /* CheckoutAuthSessionGenerateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F7E6259624B6E21B8D729 /* CheckoutAuthSessionGenerateTests.swift */; };
@@ -94,7 +95,7 @@
 		402EBD82325518DB9219B5D7 /* CheckoutTokenIssueInitResponseError.json in Resources */ = {isa = PBXBuildFile; fileRef = 402EB0FBE5EE1EFCEC120A2F /* CheckoutTokenIssueInitResponseError.json */; };
 		402EBDC47BE7D0EA9D2F01EE /* CheckoutTokenIssueExecuteMethod-0.json in Resources */ = {isa = PBXBuildFile; fileRef = 402EBEBDCC74CB930244408A /* CheckoutTokenIssueExecuteMethod-0.json */; };
 		402EBDC9351D18A9576B8565 /* CheckoutAuthSessionGenerateEmergencyWithCodeLengthSuccessResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 402EB6E0C62F0F9E5AF2B4A3 /* CheckoutAuthSessionGenerateEmergencyWithCodeLengthSuccessResponse.json */; };
-		402EBDCC1EAF053DD37FCBFE /* CheckoutAuthContextGetSuccessResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 402EBE6BF3903152A2219D1C /* CheckoutAuthContextGetSuccessResponse.json */; };
+		402EBDCC1EAF053DD37FCBFE /* CheckoutAuthContextGetSuccessResponse-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 402EBE6BF3903152A2219D1C /* CheckoutAuthContextGetSuccessResponse-1.json */; };
 		402EBEA2989C53EC6DE561B7 /* CheckoutAuthSessionGenerateMethod-0.json in Resources */ = {isa = PBXBuildFile; fileRef = 402EB3D4BF90A3B6B916D950 /* CheckoutAuthSessionGenerateMethod-0.json */; };
 		54FC0BFAB5711539B6F49BD8 /* Pods_YandexCheckoutWalletApiExamplePods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A94E8A2C7B5EAC955C4565 /* Pods_YandexCheckoutWalletApiExamplePods.framework */; };
 		E0D11C9220D92F6F00F79AE6 /* YandexMoneyCoreApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309D43142035FA5500F38469 /* YandexMoneyCoreApi.framework */; };
@@ -155,6 +156,7 @@
 		244F75B73EFD611190DB822D /* AuthParamsMappingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthParamsMappingTests.swift; sourceTree = "<group>"; };
 		244F75DE546BD0FE129DFAE1 /* AuthTypeState-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "AuthTypeState-2.json"; sourceTree = "<group>"; };
 		244F763B231B3A5DB463EBC8 /* MonetaryAmount-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "MonetaryAmount-2.json"; sourceTree = "<group>"; };
+		244F769A51D2AE1C58E8C84C /* CheckoutAuthContextGetSuccessResponse-0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CheckoutAuthContextGetSuccessResponse-0.json"; sourceTree = "<group>"; };
 		244F770990FDA483F19CB948 /* PaymentUsageLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentUsageLimit.swift; sourceTree = "<group>"; };
 		244F7810ED182AE71B00352F /* CheckoutTokenIssueInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutTokenIssueInit.swift; sourceTree = "<group>"; };
 		244F78375C2B554034A7C8A8 /* AuthTypeState-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "AuthTypeState-1.json"; sourceTree = "<group>"; };
@@ -217,7 +219,7 @@
 		402EBB8D93FD6828E538464C /* MerchantClientInfoResponseSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MerchantClientInfoResponseSuccess.json; sourceTree = "<group>"; };
 		402EBC030C14EEC1155B3781 /* CheckoutTokenIssueInitMethod-0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CheckoutTokenIssueInitMethod-0.json"; sourceTree = "<group>"; };
 		402EBE3F13F765F8D018730F /* CheckoutAuthContextGetMethod-0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CheckoutAuthContextGetMethod-0.json"; sourceTree = "<group>"; };
-		402EBE6BF3903152A2219D1C /* CheckoutAuthContextGetSuccessResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CheckoutAuthContextGetSuccessResponse.json; sourceTree = "<group>"; };
+		402EBE6BF3903152A2219D1C /* CheckoutAuthContextGetSuccessResponse-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CheckoutAuthContextGetSuccessResponse-1.json"; sourceTree = "<group>"; };
 		402EBEBDCC74CB930244408A /* CheckoutTokenIssueExecuteMethod-0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "CheckoutTokenIssueExecuteMethod-0.json"; sourceTree = "<group>"; };
 		402EBFBC2C0E7C586D366485 /* CheckoutTokenIssueExecuteAuthExpiredResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CheckoutTokenIssueExecuteAuthExpiredResponse.json; sourceTree = "<group>"; };
 		402EBFEEDE625E5330D56B66 /* AuthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthType.swift; sourceTree = "<group>"; };
@@ -627,7 +629,8 @@
 			isa = PBXGroup;
 			children = (
 				402EB4848220680016B27856 /* CheckoutAuthContextGetErrorResponse.json */,
-				402EBE6BF3903152A2219D1C /* CheckoutAuthContextGetSuccessResponse.json */,
+				402EBE6BF3903152A2219D1C /* CheckoutAuthContextGetSuccessResponse-1.json */,
+				244F769A51D2AE1C58E8C84C /* CheckoutAuthContextGetSuccessResponse-0.json */,
 			);
 			path = JsonResponse;
 			sourceTree = "<group>";
@@ -883,7 +886,7 @@
 				402EB3802CD42593A75087C2 /* MonetaryAmount-0.json in Resources */,
 				402EB9AF057F1EA89C6519AB /* CheckoutAuthContextGetMethod-0.json in Resources */,
 				402EB79E5563AFB5CE5FF1DF /* CheckoutAuthContextGetErrorResponse.json in Resources */,
-				402EBDCC1EAF053DD37FCBFE /* CheckoutAuthContextGetSuccessResponse.json in Resources */,
+				402EBDCC1EAF053DD37FCBFE /* CheckoutAuthContextGetSuccessResponse-1.json in Resources */,
 				402EBDC9351D18A9576B8565 /* CheckoutAuthSessionGenerateEmergencyWithCodeLengthSuccessResponse.json in Resources */,
 				402EBA6B4CC43281F81EDF32 /* CheckoutAuthSessionGenerateEmergencyNoCodeLengthSuccessResponse.json in Resources */,
 				402EB9573E72FA3620AC47C8 /* CheckoutAuthSessionGenerateErrorResponse.json in Resources */,
@@ -917,6 +920,7 @@
 				244F75ABC56A12BC96C72E49 /* WalletAuthApiError-7.json in Resources */,
 				244F72F8E062C0B315CD13FE /* WalletAuthApiError-8.json in Resources */,
 				244F790BD4E8C10C6BF1087E /* WalletAuthApiError-9.json in Resources */,
+				244F7A88C9FE096350054948 /* CheckoutAuthContextGetSuccessResponse-0.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

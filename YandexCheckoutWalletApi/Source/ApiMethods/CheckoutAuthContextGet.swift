@@ -96,6 +96,8 @@ public struct CheckoutAuthContextGet: Decodable, Encodable {
     // MARK: - Decodable
 
     public init(from decoder: Decoder) throws {
+        struct Stub: Decodable { }
+
         let container = try decoder.container(keyedBy: CodingKeys.self)
         _ = try container.decode(Status.self, forKey: .status)
         let resultContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .result)
@@ -104,8 +106,12 @@ public struct CheckoutAuthContextGet: Decodable, Encodable {
         var authTypes: [AuthTypeState] = []
         authTypes.reserveCapacity(authTypesContainer.count ?? 0)
         while authTypesContainer.isAtEnd != true {
-            let authType = try authTypesContainer.decode(AuthTypeState.self)
-            authTypes.append(authType)
+            do {
+                let authType = try authTypesContainer.decode(AuthTypeState.self)
+                authTypes.append(authType)
+            } catch {
+                _ = try authTypesContainer.decode(Stub.self)
+            }
         }
 
         let defaultAuthType = try resultContainer.decode(AuthType.self, forKey: .defaultAuthType)
