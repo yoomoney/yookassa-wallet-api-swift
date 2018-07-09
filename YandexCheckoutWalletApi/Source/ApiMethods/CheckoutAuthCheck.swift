@@ -28,13 +28,13 @@ import YandexMoneyCoreApi
 public struct CheckoutAuthCheck: Decodable, Encodable {
 
     /// Output format description of user authorization status
-    public let result: AuthTypeState
+    public let result: AuthTypeState?
 
     /// Creates instance of CheckoutAuthCheck.
     ///
     /// - Parameters:
     ///     - result: Output format description of user authorization status.
-    public init(result: AuthTypeState) {
+    public init(result: AuthTypeState?) {
         self.result = result
     }
 
@@ -113,7 +113,7 @@ public struct CheckoutAuthCheck: Decodable, Encodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         _ = try container.decode(Status.self, forKey: .status)
-        let result = try container.decode(AuthTypeState.self, forKey: .result)
+        let result = try container.decodeIfPresent(AuthTypeState.self, forKey: .result)
         self.init(result: result)
     }
 
