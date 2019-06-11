@@ -767,7 +767,6 @@
 				309D42D72035D25100F38469 /* Frameworks */,
 				309D42D82035D25100F38469 /* Resources */,
 				90BC0EC3E52A44C5CA788674 /* [CP] Embed Pods Frameworks */,
-				CAA573762DD35C9DE0C8EE57 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -788,7 +787,6 @@
 				309D42E62035D27900F38469 /* Frameworks */,
 				309D42E72035D27900F38469 /* Resources */,
 				10F75ED4632926398E3586D4 /* [CP] Embed Pods Frameworks */,
-				590D7E629A23F5CFBD56CACD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -953,7 +951,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YandexCheckoutWalletApiExamplePods/Pods-YandexCheckoutWalletApiExamplePods-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-YandexCheckoutWalletApiExamplePods/Pods-YandexCheckoutWalletApiExamplePods-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FunctionalSwift/FunctionalSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/YandexCheckoutWalletApi/YandexCheckoutWalletApi.framework",
 				"${BUILT_PRODUCTS_DIR}/YandexMoneyCoreApi/YandexMoneyCoreApi.framework",
@@ -966,7 +964,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YandexCheckoutWalletApiExamplePods/Pods-YandexCheckoutWalletApiExamplePods-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YandexCheckoutWalletApiExamplePods/Pods-YandexCheckoutWalletApiExamplePods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		129CF3B7665EAD6399EB6160 /* [CP] Check Pods Manifest.lock */ = {
@@ -985,25 +983,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		590D7E629A23F5CFBD56CACD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YandexCheckoutWalletApiExamplePods/Pods-YandexCheckoutWalletApiExamplePods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		771FBA1C3D0C062DC6C95F18 /* [CP] Check Pods Manifest.lock */ = {
@@ -1030,7 +1009,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-YandexCheckoutWalletApiTests/Pods-YandexCheckoutWalletApiTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-YandexCheckoutWalletApiTests/Pods-YandexCheckoutWalletApiTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FunctionalSwift/FunctionalSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/YandexMoneyCoreApi/YandexMoneyCoreApi.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
@@ -1045,26 +1024,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YandexCheckoutWalletApiTests/Pods-YandexCheckoutWalletApiTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CAA573762DD35C9DE0C8EE57 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YandexCheckoutWalletApiTests/Pods-YandexCheckoutWalletApiTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YandexCheckoutWalletApiTests/Pods-YandexCheckoutWalletApiTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
