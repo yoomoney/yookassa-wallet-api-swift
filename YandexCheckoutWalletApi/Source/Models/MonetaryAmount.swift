@@ -26,9 +26,9 @@ import Foundation
 
 public struct MonetaryAmount: Decodable, Encodable {
     public let value: Decimal
-    public let currency: CurrencyCode
+    public let currency: String
 
-    public init(value: Decimal, currency: CurrencyCode) {
+    public init(value: Decimal, currency: String) {
         self.value = value
         self.currency = currency
     }
@@ -41,7 +41,7 @@ public struct MonetaryAmount: Decodable, Encodable {
         guard let value = Decimal(string: stringValue) else {
             throw DecodingError.decimalConvent
         }
-        let currency = try container.decode(CurrencyCode.self, forKey: .currency)
+        let currency = try container.decode(String.self, forKey: .currency)
 
         self.init(value: value, currency: currency)
     }
@@ -63,5 +63,4 @@ public struct MonetaryAmount: Decodable, Encodable {
         case value
         case currency
     }
-
 }
