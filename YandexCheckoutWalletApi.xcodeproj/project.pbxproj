@@ -51,7 +51,6 @@
 		244F7C43FCB9FD1321B34AF7 /* PaymentUsageLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F770990FDA483F19CB948 /* PaymentUsageLimit.swift */; };
 		244F7C4B8A67DC454EBBF80F /* CheckoutAuthCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F71FA4F2EAA56EF3DB013 /* CheckoutAuthCheckTests.swift */; };
 		244F7CB16CAA2BFC7CCF71CB /* AuthTypeState-3.json in Resources */ = {isa = PBXBuildFile; fileRef = 244F7B1A8A2FB4A0334C4ECD /* AuthTypeState-3.json */; };
-		244F7DEC351E084272FC137E /* CurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F7F4D65C6D3E3E9D6C3D7 /* CurrencyCode.swift */; };
 		244F7EA304A87D1554375EDD /* AuthTypeState-6.json in Resources */ = {isa = PBXBuildFile; fileRef = 244F7E0467E90B08E9A7F767 /* AuthTypeState-6.json */; };
 		244F7EADD80A6011A84D66A9 /* MerchantClientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F7FCF32A29BE7F49A73CD /* MerchantClientInfo.swift */; };
 		309D42D020357DC000F38469 /* YandexCheckoutWalletApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 309D42CE20357DC000F38469 /* YandexCheckoutWalletApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -180,7 +179,6 @@
 		244F7E0467E90B08E9A7F767 /* AuthTypeState-6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "AuthTypeState-6.json"; sourceTree = "<group>"; };
 		244F7E0A426D132118D65CFF /* WalletAuthApiError-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "WalletAuthApiError-4.json"; sourceTree = "<group>"; };
 		244F7E6259624B6E21B8D729 /* CheckoutAuthSessionGenerateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutAuthSessionGenerateTests.swift; sourceTree = "<group>"; };
-		244F7F4D65C6D3E3E9D6C3D7 /* CurrencyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyCode.swift; sourceTree = "<group>"; };
 		244F7FC40BC5E944EA703352 /* WalletMappingApiMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletMappingApiMethods.swift; sourceTree = "<group>"; };
 		244F7FCF32A29BE7F49A73CD /* MerchantClientInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantClientInfo.swift; sourceTree = "<group>"; };
 		244F7FE7FD174504B3943AF4 /* WalletErrorApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletErrorApiResponse.swift; sourceTree = "<group>"; };
@@ -468,7 +466,6 @@
 				402EB7C5CAD4956A7F1D2F22 /* AuthTypeState.swift */,
 				402EBFEEDE625E5330D56B66 /* AuthType.swift */,
 				402EB740C76A4B9E3A1D271A /* AuthParams.swift */,
-				244F7F4D65C6D3E3E9D6C3D7 /* CurrencyCode.swift */,
 				244F73332202064484778778 /* MonetaryAmount.swift */,
 				244F770990FDA483F19CB948 /* PaymentUsageLimit.swift */,
 			);
@@ -1041,7 +1038,6 @@
 				402EBCB687AFA365D5F1CCEC /* AuthTypeState.swift in Sources */,
 				402EBCC46E12388DD076029C /* AuthType.swift in Sources */,
 				402EB17E48150FC45CCFB9BD /* AuthParams.swift in Sources */,
-				244F7DEC351E084272FC137E /* CurrencyCode.swift in Sources */,
 				244F764217F5D028CCD64C26 /* MonetaryAmount.swift in Sources */,
 				244F7C43FCB9FD1321B34AF7 /* PaymentUsageLimit.swift in Sources */,
 				244F752DE035580AB441C89E /* WalletApiResponse.swift in Sources */,
