@@ -41,11 +41,14 @@ public struct CheckoutAuthSessionGenerate: Decodable, Encodable {
     /// API method for CheckoutAuthSessionGenerate.
     public struct Method: Decodable, Encodable {
 
-        /// OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
-        public let passportAuthorization: String
-
         /// Merchant client key, issued in merchant's personal account, in the format " Basic [data]".
         public let merchantClientAuthorization: String
+
+        /// OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
+        public let passportAuthorization: String?
+
+        /// Token issued by the Money authorization center in the format "Bearer [token]".
+        public let moneyCenterAuthorization: String?
 
         /// The identifier of the authorization context
         let authContextId: String
@@ -56,15 +59,23 @@ public struct CheckoutAuthSessionGenerate: Decodable, Encodable {
         /// Creates instance of CheckoutAuthSessionGenerate.Method.
         ///
         /// - Parameters:
-        ///   - oauthToken: The Yandex passport oauth token
+        ///     - merchantClientAuthorization:  Merchant client key, issued in merchant's personal account,
+        ///                                     in the format " Basic [data]".
+        ///     - passportAuthorization: OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
+        ///     - moneyCenterAuthorization: Token issued by the Money authorization center
+        ///                                 in the format "Bearer [token]".
         ///   - authContextId: The identifier of the authorization context
         ///   - authType: The type of authorization selected by the user
-        public init(passportAuthorization: String,
-                    merchantClientAuthorization: String,
-                    authContextId: String,
-                    authType: AuthType) {
-            self.passportAuthorization = passportAuthorization
+        public init(
+            merchantClientAuthorization: String,
+            passportAuthorization: String?,
+            moneyCenterAuthorization: String?,
+            authContextId: String,
+            authType: AuthType
+        ) {
             self.merchantClientAuthorization = merchantClientAuthorization
+            self.passportAuthorization = passportAuthorization
+            self.moneyCenterAuthorization = moneyCenterAuthorization
             self.authContextId = authContextId
             self.authType = authType
         }
@@ -75,11 +86,13 @@ public struct CheckoutAuthSessionGenerate: Decodable, Encodable {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let authContextId = try container.decode(String.self, forKey: .authContextId)
             let authType = try container.decode(AuthType.self, forKey: .authType)
-
-            self.init(passportAuthorization: "",
-                      merchantClientAuthorization: "",
-                      authContextId: authContextId,
-                      authType: authType)
+            self.init(
+                merchantClientAuthorization: "",
+                passportAuthorization: "",
+                moneyCenterAuthorization: "",
+                authContextId: authContextId,
+                authType: authType
+            )
         }
 
         // MARK: - Encodable
@@ -161,14 +174,19 @@ extension CheckoutAuthSessionGenerate.Method: ApiMethod {
     }
 
     public var headers: Headers {
-        let values = [
-            AuthorizationConstants.passportAuthorization: AuthorizationConstants.bearerAuthorizationPrefix
-                + passportAuthorization,
-
+        var values: [String: String] = [
             AuthorizationConstants.merchantClientAuthorization: AuthorizationConstants.basicAuthorizationPrefix
                 + merchantClientAuthorization,
-
         ]
+        if let passportAuthorization = passportAuthorization {
+            let passportValue = AuthorizationConstants.bearerAuthorizationPrefix + passportAuthorization
+            values[AuthorizationConstants.passportAuthorization] = passportValue
+        }
+
+        if let moneyCenterAuthorization = moneyCenterAuthorization {
+            let moneyCenterValue = AuthorizationConstants.bearerAuthorizationPrefix + moneyCenterAuthorization
+            values[AuthorizationConstants.moneyCenterAuthorization] = moneyCenterValue
+        }
         return Headers(values)
     }
 }

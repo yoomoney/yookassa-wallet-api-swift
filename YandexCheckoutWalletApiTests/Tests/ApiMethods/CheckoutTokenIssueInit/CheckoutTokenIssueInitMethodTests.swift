@@ -55,12 +55,15 @@ class CheckoutTokenIssueInitMethodTests: ApiMethodTestCase {
 private extension CheckoutTokenIssueInitMethodTests {
     func validate(_ stubsResponse: StubsResponse.Type,
                   verify: @escaping (Result<CheckoutTokenIssueInit>) -> Void) {
-        let method = CheckoutTokenIssueInit.Method(passportAuthorization: "",
-                                                   merchantClientAuthorization: "",
-                                                   instanceName: "",
-                                                   singleAmountMax: nil,
-                                                   paymentUsageLimit: .single,
-                                                   tmxSessionId: "")
+        let method = CheckoutTokenIssueInit.Method(
+            merchantClientAuthorization: "",
+            passportAuthorization: "",
+            moneyCenterAuthorization: "",
+            instanceName: "",
+            singleAmountMax: nil,
+            paymentUsageLimit: .single,
+            tmxSessionId: ""
+        )
         validate(method, stubsResponse, CheckoutTokenIssueInitMethodTests.self, verify: verify)
     }
 }

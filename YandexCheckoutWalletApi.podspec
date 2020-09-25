@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name      = 'YandexCheckoutWalletApi'
-  s.version   = '1.3.0'
+  s.version   = '2.0.0'
   s.homepage  = 'https://github.com/yandex-money/yandex-checkout-wallet-api-swift'
   s.license   = {
     :type => "MIT",
@@ -9,9 +9,9 @@ Pod::Spec.new do |s|
   s.authors = 'Yandex Checkout'
   s.summary = 'Yandex Checkout Wallet Api iOS'
 
-  s.source = { 
+  s.source = {
     :git => 'https://github.com/yandex-money/yandex-checkout-wallet-api-swift.git',
-    :tag => s.version.to_s 
+    :tag => s.version.to_s
   }
 
   s.ios.deployment_target = '8.0'
@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
   s.ios.source_files  = 'YandexCheckoutWalletApi/**/*.{h,swift}', 'YandexCheckoutWalletApi/*.{h,swift}'
 
   s.ios.dependency 'FunctionalSwift', '~> 1.1.0'
-  s.ios.dependency 'YandexMoneyCoreApi', '~> 1.7.0'
+  s.ios.dependency 'YandexMoneyCoreApi', '~> 1.8.0'
 end

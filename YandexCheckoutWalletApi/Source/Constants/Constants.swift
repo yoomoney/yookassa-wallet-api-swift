@@ -31,6 +31,7 @@ enum AuthorizationConstants {
     static let merchantClientAuthorization = "Merchant-Client-Authorization"
     static let basicAuthorizationPrefix = "Basic "
 
-    static let passportAuthorization = "Passport-Authorization"
     static let bearerAuthorizationPrefix = "Bearer "
+    static let passportAuthorization = "Passport-Authorization"
+    static let moneyCenterAuthorization = "Authorization"
 }

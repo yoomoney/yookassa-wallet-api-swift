@@ -53,11 +53,14 @@ public struct CheckoutTokenIssueInit: Decodable, Encodable {
     /// API method for CheckoutTokenIssueInit.
     public struct Method: Decodable, Encodable {
 
-        /// OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
-        public let passportAuthorization: String
-
         /// Merchant client key, issued in merchant's personal account, in the format " Basic [data]".
         public let merchantClientAuthorization: String
+
+        /// OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
+        public let passportAuthorization: String?
+
+        /// Token issued by the Money authorization center in the format "Bearer [token]".
+        public let moneyCenterAuthorization: String?
 
         /// The ID of the authorization instance in the application.
         public let instanceName: String
@@ -74,21 +77,26 @@ public struct CheckoutTokenIssueInit: Decodable, Encodable {
         /// Creates instance of CheckoutTokenIssueInit.Method.
         ///
         /// - Parameters:
-        ///     - passportAuthorization: OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
         ///     - merchantClientAuthorization:  Merchant client key, issued in merchant's personal account,
         ///                                     in the format " Basic [data]".
+        ///     - passportAuthorization: OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
+        ///     - moneyCenterAuthorization: Token issued by the Money authorization center
         ///     - instanceName: The ID of the authorization instance in the application.
         ///     - singleAmountMax: Amount with currency.
         ///     - paymentUsageLimit: How many times are allowed to pay a generated token: one-time or unlimited.
         ///     - tmxSessionId: ThreatMetrix mobile session ID.
-        public init(passportAuthorization: String,
-                    merchantClientAuthorization: String,
-                    instanceName: String,
-                    singleAmountMax: MonetaryAmount?,
-                    paymentUsageLimit: PaymentUsageLimit,
-                    tmxSessionId: String) {
-            self.passportAuthorization = passportAuthorization
+        public init(
+            merchantClientAuthorization: String,
+            passportAuthorization: String?,
+            moneyCenterAuthorization: String?,
+            instanceName: String,
+            singleAmountMax: MonetaryAmount?,
+            paymentUsageLimit: PaymentUsageLimit,
+            tmxSessionId: String
+        ) {
             self.merchantClientAuthorization = merchantClientAuthorization
+            self.passportAuthorization = passportAuthorization
+            self.moneyCenterAuthorization = moneyCenterAuthorization
             self.instanceName = instanceName
             self.singleAmountMax = singleAmountMax
             self.paymentUsageLimit = paymentUsageLimit
@@ -103,13 +111,15 @@ public struct CheckoutTokenIssueInit: Decodable, Encodable {
             let singleAmountMax = try container.decodeIfPresent(MonetaryAmount.self, forKey: .singleAmountMax)
             let paymentUsageLimit = try container.decode(PaymentUsageLimit.self, forKey: .paymentUsageLimit)
             let tmxSessionId = try container.decode(String.self, forKey: .tmxSessionId)
-
-            self.init(passportAuthorization: "",
-                      merchantClientAuthorization: "",
-                      instanceName: instanceName,
-                      singleAmountMax: singleAmountMax,
-                      paymentUsageLimit: paymentUsageLimit,
-                      tmxSessionId: tmxSessionId)
+            self.init(
+                merchantClientAuthorization: "",
+                passportAuthorization: "",
+                moneyCenterAuthorization: "",
+                instanceName: instanceName,
+                singleAmountMax: singleAmountMax,
+                paymentUsageLimit: paymentUsageLimit,
+                tmxSessionId: tmxSessionId
+            )
         }
 
         // MARK: - Encodable
@@ -218,14 +228,19 @@ extension CheckoutTokenIssueInit.Method: ApiMethod {
     }
 
     public var headers: Headers {
-        let values = [
-            AuthorizationConstants.passportAuthorization: AuthorizationConstants.bearerAuthorizationPrefix
-                + passportAuthorization,
-
+        var values: [String: String] = [
             AuthorizationConstants.merchantClientAuthorization: AuthorizationConstants.basicAuthorizationPrefix
                 + merchantClientAuthorization,
-
         ]
+        if let passportAuthorization = passportAuthorization {
+            let passportValue = AuthorizationConstants.bearerAuthorizationPrefix + passportAuthorization
+            values[AuthorizationConstants.passportAuthorization] = passportValue
+        }
+
+        if let moneyCenterAuthorization = moneyCenterAuthorization {
+            let moneyCenterValue = AuthorizationConstants.bearerAuthorizationPrefix + moneyCenterAuthorization
+            values[AuthorizationConstants.moneyCenterAuthorization] = moneyCenterValue
+        }
         return Headers(values)
     }
 }

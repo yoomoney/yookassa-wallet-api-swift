@@ -40,11 +40,14 @@ public struct CheckoutTokenIssueExecute: Decodable, Encodable {
 
     public struct Method: Decodable, Encodable {
 
-        /// OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
-        public let passportAuthorization: String
-
         /// Merchant client key, issued in merchant's personal account, in the format " Basic [data]".
         public let merchantClientAuthorization: String
+
+        /// OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
+        public let passportAuthorization: String?
+
+        /// Token issued by the Money authorization center in the format "Bearer [token]".
+        public let moneyCenterAuthorization: String?
 
         /// ID the process of obtaining a merchant checkout token payment.
         public let processId: String
@@ -52,15 +55,20 @@ public struct CheckoutTokenIssueExecute: Decodable, Encodable {
         /// Creates instance of CheckoutTokenIssueExecute.Method.
         ///
         /// - Parameters:
-        ///     - passportAuthorization: OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
         ///     - merchantClientAuthorization:  Merchant client key, issued in merchant's personal account,
         ///                                     in the format " Basic [data]".
+        ///     - passportAuthorization: OAuth2 token issued by the Yandex.Passport in the format "Bearer [token]".
+        ///     - moneyCenterAuthorization: Token issued by the Money authorization center
         ///     - processId: ID the process of obtaining a merchant checkout token payment.
-        public init(passportAuthorization: String,
-                    merchantClientAuthorization: String,
-                    processId: String) {
-            self.passportAuthorization = passportAuthorization
+        public init(
+            merchantClientAuthorization: String,
+            passportAuthorization: String?,
+            moneyCenterAuthorization: String?,
+            processId: String
+        ) {
             self.merchantClientAuthorization = merchantClientAuthorization
+            self.passportAuthorization = passportAuthorization
+            self.moneyCenterAuthorization = moneyCenterAuthorization
             self.processId = processId
         }
 
@@ -69,10 +77,12 @@ public struct CheckoutTokenIssueExecute: Decodable, Encodable {
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let processId = try container.decode(String.self, forKey: .processId)
-
-            self.init(passportAuthorization: "",
-                      merchantClientAuthorization: "",
-                      processId: processId)
+            self.init(
+                merchantClientAuthorization: "",
+                passportAuthorization: "",
+                moneyCenterAuthorization: "",
+                processId: processId
+            )
         }
 
         // MARK: - Encodable
@@ -158,14 +168,19 @@ extension CheckoutTokenIssueExecute.Method: ApiMethod {
     }
 
     public var headers: Headers {
-        let values = [
-            AuthorizationConstants.passportAuthorization: AuthorizationConstants.bearerAuthorizationPrefix
-                + passportAuthorization,
-
+        var values: [String: String] = [
             AuthorizationConstants.merchantClientAuthorization: AuthorizationConstants.basicAuthorizationPrefix
                 + merchantClientAuthorization,
-
         ]
+        if let passportAuthorization = passportAuthorization {
+            let passportValue = AuthorizationConstants.bearerAuthorizationPrefix + passportAuthorization
+            values[AuthorizationConstants.passportAuthorization] = passportValue
+        }
+
+        if let moneyCenterAuthorization = moneyCenterAuthorization {
+            let moneyCenterValue = AuthorizationConstants.bearerAuthorizationPrefix + moneyCenterAuthorization
+            values[AuthorizationConstants.moneyCenterAuthorization] = moneyCenterValue
+        }
         return Headers(values)
     }
 }
