@@ -111,10 +111,13 @@ private extension CheckoutAuthSessionGenerateTests {
 
     func validate(_ stubsResponse: StubsResponse.Type,
                   verify: @escaping (Result<CheckoutAuthSessionGenerate>) -> Void) {
-        let method = CheckoutAuthSessionGenerate.Method(passportAuthorization: "",
-                                                        merchantClientAuthorization: "",
-                                                        authContextId: "",
-                                                        authType: .sms)
+        let method = CheckoutAuthSessionGenerate.Method(
+            merchantClientAuthorization: "",
+            passportAuthorization: "",
+            moneyCenterAuthorization: "",
+            authContextId: "",
+            authType: .sms
+        )
         validate(method, stubsResponse, CheckoutAuthSessionGenerateTests.self, verify: verify)
     }
 }

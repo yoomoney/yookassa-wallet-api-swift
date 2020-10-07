@@ -81,11 +81,14 @@ class CheckoutAuthCheckTests: ApiMethodTestCase {
 private extension CheckoutAuthCheckTests {
     func validate(_ stubsResponse: StubsResponse.Type,
                   verify: @escaping (Result<CheckoutAuthCheck>) -> Void) {
-        let method = CheckoutAuthCheck.Method(passportAuthorization: "",
-                                              merchantClientAuthorization: "",
-                                              authContextId: "",
-                                              authType: .emergency,
-                                              answer: "")
+        let method = CheckoutAuthCheck.Method(
+            merchantClientAuthorization: "",
+            passportAuthorization: "",
+            moneyCenterAuthorization: "",
+            authContextId: "",
+            authType: .emergency,
+            answer: ""
+        )
         validate(method, stubsResponse, CheckoutAuthCheckTests.self, verify: verify)
     }
 }

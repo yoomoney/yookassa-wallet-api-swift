@@ -66,9 +66,12 @@ class CheckoutTokenIssueExecuteTests: ApiMethodTestCase {
 private extension CheckoutTokenIssueExecuteTests {
     func validate(_ stubsResponse: StubsResponse.Type,
                   verify: @escaping (Result<CheckoutTokenIssueExecute>) -> Void) {
-        let method = CheckoutTokenIssueExecute.Method(passportAuthorization: "",
-                                                      merchantClientAuthorization: "",
-                                                      processId: "")
+        let method = CheckoutTokenIssueExecute.Method(
+            merchantClientAuthorization: "",
+            passportAuthorization: "",
+            moneyCenterAuthorization: "",
+            processId: ""
+        )
         validate(method, stubsResponse, CheckoutTokenIssueExecuteTests.self, verify: verify)
     }
 }
