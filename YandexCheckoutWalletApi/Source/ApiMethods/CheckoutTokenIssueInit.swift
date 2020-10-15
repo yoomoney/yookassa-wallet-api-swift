@@ -32,7 +32,7 @@ public struct CheckoutTokenIssueInit: Decodable, Encodable {
     public let authRequired: Bool
 
     /// The identifier of the authorization context.
-    public let authContextId: String
+    public let authContextId: String?
 
     /// ID the process of obtaining a merchant checkout token payment.
     public let processId: String
@@ -43,7 +43,7 @@ public struct CheckoutTokenIssueInit: Decodable, Encodable {
     ///     - authContextId: The identifier of the authorization context.
     ///     - processId: ID the process of obtaining a merchant checkout token payment.
     public init(authRequired: Bool,
-                authContextId: String,
+                authContextId: String?,
                 processId: String) {
         self.authRequired = authRequired
         self.authContextId = authContextId
@@ -146,7 +146,7 @@ public struct CheckoutTokenIssueInit: Decodable, Encodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let status = try container.decode(Status.self, forKey: .status)
         let resultContainer = try container.nestedContainer(keyedBy: ResultCodingKeys.self, forKey: .result)
-        let authContextId = try resultContainer.decode(String.self, forKey: .authContextId)
+        let authContextId = try resultContainer.decodeIfPresent(String.self, forKey: .authContextId)
         let processId = try resultContainer.decode(String.self, forKey: .processId)
 
         let authRequired: Bool
@@ -172,7 +172,7 @@ public struct CheckoutTokenIssueInit: Decodable, Encodable {
         }
 
         var resultContainer = container.nestedContainer(keyedBy: ResultCodingKeys.self, forKey: .result)
-        try resultContainer.encode(authContextId, forKey: .authContextId)
+        try resultContainer.encodeIfPresent(authContextId, forKey: .authContextId)
         try resultContainer.encode(processId, forKey: .processId)
     }
 
