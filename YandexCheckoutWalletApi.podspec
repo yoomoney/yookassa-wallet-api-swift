@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name      = 'YandexCheckoutWalletApi'
-  s.version   = '2.0.0'
+  s.version   = '2.1.0'
   s.homepage  = 'https://github.com/yandex-money/yandex-checkout-wallet-api-swift'
   s.license   = {
     :type => "MIT",
