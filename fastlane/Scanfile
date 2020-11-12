@@ -1,2 +1,2 @@
-scheme("YCWalletApiTests")
+scheme("YooKassaWalletApiTests")
 clean(true)
