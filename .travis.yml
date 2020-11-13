@@ -1,7 +1,7 @@
-language: objective-c
-osx_image: xcode10.2
-xcode_workspace: YandexCheckoutWalletApi.xcworkspace
-xcode_scheme: YCWalletApiExamplePods
+language: swift
+osx_image: xcode11.3
+xcode_workspace: YooKassaWalletApi.xcworkspace
+xcode_scheme: YooKassaWalletApiExamplePods
 cache:
   bundler: true
   cocoapods: true
@@ -14,8 +14,7 @@ before_install:
 - brew update && brew bundle
 - bundle install --jobs=3 --retry=3 --deployment
 - pushd .
-- bundle exec pod repo update
-- bundle exec pod install
+- travis_wait bundle exec pod install --repo-update
 install: true
 before_script:
 - carthage bootstrap --platform iOS --cache-builds
