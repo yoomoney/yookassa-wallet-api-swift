@@ -185,25 +185,25 @@ extension CheckoutAuthCheck.Method: ApiMethod {
     }
 }
 
-public enum CheckoutAuthCheckError: String, Decodable, Encodable, JsonApiResponse, WalletErrorApiResponse {
+public enum CheckoutAuthCheckError: Decodable, Encodable, JsonApiResponse, WalletErrorApiResponse {
 
     /// Invalid authorization context.
-    case invalidContext
+    case invalidContext(AuthTypeState?)
 
     /// The session has not been created. You must create the session before the authorization check.
-    case sessionDoesNotExist
+    case sessionDoesNotExist(AuthTypeState?)
 
     /// The session has expired, you need to create a new session.
-    case sessionExpired
+    case sessionExpired(AuthTypeState?)
 
     /// Unsupported authorization type for user.
-    case unsupportedAuthType
+    case unsupportedAuthType(AuthTypeState?)
 
     /// Ended attempts to enter the code.
-    case verifyAttemptsExceeded
+    case verifyAttemptsExceeded(AuthTypeState?)
 
     /// The authorization code is invalid.
-    case invalidAnswer
+    case invalidAnswer(AuthTypeState?)
 
     // MARK: - Decodable
 
@@ -211,20 +211,21 @@ public enum CheckoutAuthCheckError: String, Decodable, Encodable, JsonApiRespons
         let container = try decoder.container(keyedBy: CodingKeys.self)
         _ = try container.decode(Status.self, forKey: .status)
         let errorCode = try container.decode(ErrorCode.self, forKey: .error)
+        let result = try container.decodeIfPresent(AuthTypeState.self, forKey: .result)
 
         switch errorCode {
         case .invalidContext:
-            self = .invalidContext
+            self = .invalidContext(result)
         case .sessionDoesNotExist:
-            self = .sessionDoesNotExist
+            self = .sessionDoesNotExist(result)
         case .sessionExpired:
-            self = .sessionExpired
+            self = .sessionExpired(result)
         case .unsupportedAuthType:
-            self = .unsupportedAuthType
+            self = .unsupportedAuthType(result)
         case .verifyAttemptsExceeded:
-            self = .verifyAttemptsExceeded
+            self = .verifyAttemptsExceeded(result)
         case .invalidAnswer:
-            self = .invalidAnswer
+            self = .invalidAnswer(result)
         }
     }
 
@@ -254,6 +255,7 @@ public enum CheckoutAuthCheckError: String, Decodable, Encodable, JsonApiRespons
     private enum CodingKeys: String, CodingKey {
         case status
         case error
+        case result
     }
 
     private enum Status: String, Decodable, Encodable {

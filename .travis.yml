@@ -1,24 +1,26 @@
 language: swift
-osx_image: xcode11.3
+osx_image: xcode11.6
 xcode_workspace: YooKassaWalletApi.xcworkspace
 xcode_scheme: YooKassaWalletApiExamplePods
 cache:
   bundler: true
   cocoapods: true
   directories:
-  - Carthage
+    - Carthage
 notifications:
   slack:
     secure: RoC6tZbaHS7UY9dmQF/6sEog64msLb2NHjrqBJyth2OkH08VpTZm+5exVpPwq3k6f5+bQdp1E9J6UlCswfw5RE1dSaYcwQ0OM1X7rK7PbXg3e5NXmy4opvUi5SKAi9eRqeFDxxHvbYszyLstJlkPoKYJe6QSJnQNcAcpdVKhYDJj31u5ioF4IQjW1ikyU+s1n/hvKsJ+8+1P+CXF8XwMWjkuytq7Eb6By55e3FoAWWkMQVA21/Kel7h//P/Mwr1n7MFU28js8zBVq3PIuR8BJJ5jAWR/9Yotfo5s3Briti8IUrZf/svAo2+vw4YEtMKZOUtsyrS4Yq1wngJS2Eb5PMRFykcqSIIc+ZhCFzJiR58lHBxJUB34Ng9osWRKVG1aomBwLRwJ9DZQu/Li5ebgV7JsJBhfXm3kuv9vRPVmea8b1Ap8YUc+EhxD6OKQjW5spAVG1ZA6ceJhT+lN+Rs+lfGWg11m7fxodhfj5Cd+GyxiVbdF/wQ0VmigBMaiB2gmXB7/OiUuqfQZ8zAAy/1QIlkZRUBTJRN40KI006JkWII5TBs9ie93JEmGgICtVZHl8IbLKZ74grdl8z4o+LqHbxy125vXEdlY02FlYo5aoC415uNpNbmbZXdwXyvU4wUBl/6HI1TatQaHt/fNZqEhh+e4DpoQJPVGrgw16Meih5M=
 before_install:
-- brew update && brew bundle
-- bundle install --jobs=3 --retry=3 --deployment
-- pushd .
-- travis_wait bundle exec pod install --repo-update
+  - rvm use 2.5.5 --default --install --fuzzy
+  - brew update && brew bundle
+  - bundle install --jobs=3 --retry=3 --deployment
+  - pushd .
+  - rvm use default
+  - travis_wait bundle exec pod install --repo-update
 install: true
 before_script:
-- carthage bootstrap --platform iOS --cache-builds
+  - carthage bootstrap --platform iOS --cache-builds
 script:
-- swiftlint
-- bundle exec fastlane build
-- bundle exec fastlane scan
+  - swiftlint
+  - bundle exec fastlane build
+  - bundle exec fastlane scan
