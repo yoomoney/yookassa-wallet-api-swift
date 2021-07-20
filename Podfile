@@ -8,7 +8,7 @@ target 'YooKassaWalletApiExamplePods' do
 end
 
 target 'YooKassaWalletApiTests' do
-  pod 'YooMoneyTestInstrumentsApi', '~> 2.0.0'
+  pod 'YooMoneyTestInstrumentsApi', '~> 2.1.0'
 end
 
 post_install do |installer|
