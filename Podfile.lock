@@ -1,5 +1,5 @@
 PODS:
-  - FunctionalSwift (1.2.0)
+  - FunctionalSwift (1.6.7)
   - OHHTTPStubs (8.0.0):
     - OHHTTPStubs/Default (= 8.0.0)
   - OHHTTPStubs/Core (8.0.0)
@@ -13,19 +13,19 @@ PODS:
   - OHHTTPStubs/NSURLSession (8.0.0):
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (8.0.0)
-  - YooKassaWalletApi (2.3.0):
-    - FunctionalSwift (~> 1.2.0)
-    - YooMoneyCoreApi (~> 1.9.0)
-  - YooMoneyCoreApi (1.9.0):
-    - FunctionalSwift (~> 1.2.0)
-  - YooMoneyTestInstrumentsApi (2.0.0):
-    - FunctionalSwift (~> 1.2.0)
+  - YooKassaWalletApi (2.3.1):
+    - FunctionalSwift (~> 1.6.7)
+    - YooMoneyCoreApi (~> 1.11.4)
+  - YooMoneyCoreApi (1.11.4):
+    - FunctionalSwift (~> 1.6.7)
+  - YooMoneyTestInstrumentsApi (2.1.0):
+    - FunctionalSwift
     - OHHTTPStubs (~> 8.0.0)
-    - YooMoneyCoreApi (~> 1.9.0)
+    - YooMoneyCoreApi (~> 1.10)
 
 DEPENDENCIES:
   - YooKassaWalletApi (from `./`)
-  - YooMoneyTestInstrumentsApi (~> 2.0.0)
+  - YooMoneyTestInstrumentsApi (~> 2.1.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -39,12 +39,12 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  FunctionalSwift: 1b839fcf50b8db067885938df54f818518356dbb
+  FunctionalSwift: b04fa6a40e25c54481796ce37166214028e38fee
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
-  YooKassaWalletApi: 9ca2fa3c2827721d646ee8f770509e7eeea98743
-  YooMoneyCoreApi: 4f40673a79d11e95af850bb97f264995ac47a873
-  YooMoneyTestInstrumentsApi: dab803d47c0f72909719cb53319d25491d0aaba1
+  YooKassaWalletApi: c1916b692ad842ae04917a10ce66d6d2f971c653
+  YooMoneyCoreApi: bbcc2d1836d8a31582f4950e5eebf122ce94b34f
+  YooMoneyTestInstrumentsApi: 039650edefa0c2ae663adb2cdde5a041e28521c0
 
-PODFILE CHECKSUM: 922feacc9e780e0ca9bcda7ef7ce52cb24761115
+PODFILE CHECKSUM: 9387da9d12fa5cb8f0549415dd62ba3895b94e16
 
 COCOAPODS: 1.10.0
