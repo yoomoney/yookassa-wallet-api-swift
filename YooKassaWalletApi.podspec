@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
 
   s.ios.source_files  = 'YooKassaWalletApi/**/*.{h,swift}', 'YooKassaWalletApi/*.{h,swift}'
 
-  s.ios.dependency 'FunctionalSwift', '~> 1.6.7'
-  s.ios.dependency 'YooMoneyCoreApi', '~> 1.11.4'
+  s.ios.dependency 'FunctionalSwift'
+  s.ios.dependency 'YooMoneyCoreApi'
 end
